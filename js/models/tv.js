@@ -1,4 +1,4 @@
-class TV extends Media{ 
+class TV extends Media { 
     constructor (volume, channels) {
         super('tv', volume, channels);
         this.__currentTimerValue = 0;
