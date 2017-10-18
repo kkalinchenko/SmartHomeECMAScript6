@@ -43,7 +43,7 @@ function getTimerValue(domTv) {
 
 function setTvTimer(domTv) {
     let timerValue = getTimerValue(domTv);
-    this.setTimer(timerValue);
+    this.setTimer(timerValue, this);
 }
 
 /****subcribers***/

@@ -16,15 +16,14 @@ class TV extends Media {
         return this.__currentTimerValue;
     }
 
-    setTimer (value) {
-        let self = this;
+    setTimer (value, self) {
         this.timerValue = value;
 
         if (this.timerValue > 0) {
-            self.raiseStateChangeEvent('timer');
+            this.raiseStateChangeEvent('timer', self);
             setTimeout(function timerCountdown() {
                 self.timerValue--;
-                self.raiseStateChangeEvent('timer');
+                self.raiseStateChangeEvent('timer', self);
                 if (self.timerValue > 0) {
                     setTimeout(timerCountdown, 1000);
                 } else {

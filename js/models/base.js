@@ -7,12 +7,12 @@ class Base {
 
     turnOn(){
         this.isOn = true;
-        this.raiseStateChangeEvent('turn');   
+        this.raiseStateChangeEvent('turn', this);   
     }
 
     turnOff(){
         this.isOn = false;
-        this.raiseStateChangeEvent('turn'); 
+        this.raiseStateChangeEvent('turn', this); 
     }
 
     getState(){
@@ -28,8 +28,7 @@ class Base {
         });
     }
 
-    raiseStateChangeEvent(property) {
-        var self = this;
+    raiseStateChangeEvent(property, self) {
         this.__listeners.forEach(function (listener) {
             setTimeout(function () {
                 if (property === listener.property) {
