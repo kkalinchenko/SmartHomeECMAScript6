@@ -18,7 +18,7 @@ class Media extends Base{
             this.__currentChannel = 0;
         }
 
-        this.raiseStateChangeEvent('channel', this);
+        this.raiseStateChangeEvent('channel');
     }
 
     switchChannelBack () {
@@ -27,13 +27,13 @@ class Media extends Base{
             this.__currentChannel = this.channels.length - 1;
         }
 
-        this.raiseStateChangeEvent('channel', this);
+        this.raiseStateChangeEvent('channel');
     }
 
     increaseVolume () {
         if (this.__currentVolume < this.MAX_VOLUME) {
             this.__currentVolume++;
-            this.raiseStateChangeEvent('volume', this);
+            this.raiseStateChangeEvent('volume');
         } else {
             this.__currentVolume = this.MIN_VOLUME;
         }
@@ -42,7 +42,7 @@ class Media extends Base{
     decreaseVolume () {
         if (this.__currentVolume > this.MIN_VOLUME) {
             this.__currentVolume--;
-            this.raiseStateChangeEvent('volume', this);
+            this.raiseStateChangeEvent('volume');
         } else {
             this.__currentVolume = this.MAX_VOLUME;
         }
